@@ -26,6 +26,10 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function profile(){
+        return view('profile');
+    }
+
     public function template(){
         return view('card-template');
     }

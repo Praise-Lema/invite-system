@@ -3,7 +3,7 @@
             <div class="extra-side-bar col-md-9">
                 @include('partials.messages')
             </div>
-            <div class="main-bar">
+            <div>
                 @yield('content')
             </div>
         </main>

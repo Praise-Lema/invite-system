@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\GuestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('card-template', [HomeController::class, 'template']);
+Route::resource('/event', EventController::class);
+Route::post('/guest/{guest}/create', [GuestController::class, 'store']);
+
+Route::get('/profile', [HomeController::class, 'profile']);
