@@ -1,0 +1,108 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-font{
+    font-family: 'Dancing Script', cursive;
+}
+
+.card-font-2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-texty, .date-text, .venue-text, .host-text, .invite-text, .cta, .other-desc, .location-text, .contacts, .time-text, .badge-text {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card-texty {
+    top: 20%;
+    font-size: 4rem;
+}
+
+.host-text{
+    top: 10%;
+}
+
+.invite-text {
+    top: 15%;
+}
+
+.date-text{
+    bottom: 50%;
+}
+
+.venue-text{
+    bottom: 46%;
+
+}
+
+.cta {
+    bottom: 10%;
+}
+
+.other-desc {
+    bottom: 40%;
+}
+
+/* Media Query */
+@media (max-width: 720px) {
+    .host-text {
+        font-size: 1rem;
+    }
+
+    .guest-font{
+        text-decoration: underline;
+    }
+
+    .badge-text{
+        left: 20%;
+        bottom: 17%;
+    }
+
+    .card-texty{
+        font-size: 2rem;
+        top: 26%;
+    }
+
+    .invite-text{
+        top: 14%;
+        font-size: 0.7rem;
+    }
+
+    .date-text{
+        left: 48%;
+        bottom: 43%;
+        font-size: 1.2rem;
+    }
+
+    .venue-text{
+        bottom: 32%;
+        font-size: 20px;
+    }
+
+    .location-text{
+        bottom: 28%;
+        font-size: 15px;
+    }
+
+    .other-desc{
+        display: none;
+    }
+    
+    .contacts{
+        bottom: 21%;
+    }
+
+    .cta {
+        left: 44%;
+        display: flex;
+        /* padding: 0 3px; */
+        /* justify-content: ; */
+        align-items: center;
+    }
+
+    .time-text{
+        bottom: 40%;
+    }
+}
