@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      */
@@ -40,7 +46,7 @@ class EventController extends Controller
             'date' => 'required',
             'time' => 'required',
             'venue' => 'required',
-            'location' => 'required',
+            'location_name' => 'required',
         ]);
 
         $event = new Event;
@@ -52,7 +58,8 @@ class EventController extends Controller
         $event->date = $request->input('date');
         $event->time = $request->input('time');
         $event->venue = $request->input('venue');
-        $event->location = $request->input('location');
+        $event->location_name = $request->input('location_name');
+        $event->location_link = $request->input('location_link');
         $event->contacts = $request->input('contacts');
         $event->user_id = auth()->id();
         $event->save();

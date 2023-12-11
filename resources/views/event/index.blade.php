@@ -7,15 +7,9 @@
         <div class="container">
             <hr style="margin: auto; width: 8%;">
             <div class="container">
-                <div class="container d-flex justify-content-between">
+                <div class="container d-flex justify-content-start">
                     <a href="/event/create" class="btn btn-dark bg-gradient mb-3"><i class="fa fa-plus me-1"></i> Create Event</a>
-                    <div class="dropdown">
-                        <a class="btn btn-dark bg-gradient mb-3 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-file-export me-1"></i>Export Report</a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="/purchase/export"><i class="fa fa-download me-2"></i>Download</a></li>
-                          {{-- <li><a class="dropdown-item" href="#"><i class="fa fa-share-alt me-2"></i>Share via Email</a></li> --}}
-                        </ul>
-                    </div>
+                    
                 </div>
                 
                 <div class="table-responsive-md container-fluid">
@@ -43,7 +37,7 @@
                                         <td>{{$event->date}}</td>
                                         <td>{{$event->time}}</td>
                                         <td>{{$event->venue}}</td>
-                                        <td>{{$event->location}}</td>
+                                        <td><a href="{{$event->location_link}}">{{$event->location_name}}</a></td>
                                             <td class="d-flex align-items-center">
                                                 <a href="/purchase/{{$event->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
                                                 <form action="/purchase/{{$event->id}}" method="POST">
@@ -59,6 +53,7 @@
                                 <tr>
                                     <td></td>
                                     <td>No Events Found</td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>

@@ -3,7 +3,7 @@
     @include('partials.sidebar')
 
     <div class="container">
-        <h1 class="text-center">Show Event</h1>
+        <h1 class="text-center">Show Guests</h1>
 
         <div class="container">
             <hr style="margin: auto; width: 8%;">
@@ -11,6 +11,11 @@
                 <div class="container d-flex justify-content-between">
                     <a href="/event" class="btn btn-dark bg-gradient mb-3"><i class="fa fa-arrow-left me-1"></i> Go Back</a>
                     <a href="" class="btn btn-dark bg-gradient mb-3" data-bs-toggle="modal" data-bs-target="#guestModal"><i class="fa fa-plus me-1"></i> Add Guest</a>
+                </div>
+
+                <div class="container d-flex justify-content-between">
+                    <h3>Event: {{$event->event_name}}</h3>
+                    <h3>Type: {{$event->event_type}}</h3>
                 </div>
                 
                 <div class="table-responsive-md container-fluid">
@@ -22,6 +27,7 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Type</th>
+                            <th>Status</th>
                             <th>Invite-link</th>
                             <th>Action</th>
                         </tr>
@@ -36,11 +42,24 @@
                                         <td>{{$guest->email}}</td>
                                         <td>{{$guest->phone}}</td>
                                         <td>{{$guest->type}}</td>
+                                        @if ($guest->status == 0)
+                                            <td><span class="badge rounded-pill text-bg-danger">Not Attending</span></td>
+                                        @endif
+
+                                        @if ($guest->status == 1)
+                                            <td><span class="badge rounded-pill text-bg-warning">Pending</span></td>
+                                        @endif
+
+                                        @if ($guest->status == 2)
+                                            <td><span class="badge rounded-pill text-bg-success">Attending</span></td>
+                                        @endif
+
                                         <td>{{$guest->invite_link}}</td>
                                         {{-- <td>{{$guest->loc}}</td> --}}
                                             <td class="d-flex align-items-center">
-                                                <a href="/guest/{{$event->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
-                                                <form action="/guest/{{$event->id}}" method="POST">
+                                                <a href="/guest/{{$guest->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
+                                                <a href="#" class="text-warning-emphasis mx-1" title="View Card"><span class="fas fa-eye"></span></a>
+                                                <form action="/guest/{{$guest->id}}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{method_field('DELETE')}}
                                                     <button type="submit" value="" class="fas fa-trash text-danger border-0 bg-transparent"></button>
@@ -65,6 +84,7 @@
                                 <tr>
                                     <td></td>
                                     <td>No Guests Invited</td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>

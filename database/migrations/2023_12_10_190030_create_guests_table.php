@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('invite_link')->nullable();
+            $table->enum('status', ['0' , '1' , '2'])->default('1');
             $table->enum('type', ['Single', 'Double'])->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('event_id')->nullable()->constrained()->onDelete('cascade');

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -44,6 +50,7 @@ class GuestController extends Controller
         $guest->email = $request->email;
         $guest->phone = $request->phone;
         $guest->type = $request->type;
+        $guest->status = '1';
         $guest->invite_link = $this->generateRandomString();
         $guest->user_id = auth()->id();
         $guest->event_id = $id;

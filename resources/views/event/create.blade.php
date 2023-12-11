@@ -5,8 +5,8 @@
     <div class="container  bg-secondary-subtle rounded p-4">
         <h1 class="text-center">Create Event</h1>
         <div class="container px-4">
-            <form action="/event" method="post" class="form">
-                {{-- @csrf --}}
+            <form action="/event" method="POST" class="form">
+                @csrf
 
                 <div class="form-group my-4">
                     <label for="Event name" class="form-label">Event Name</label>
@@ -56,9 +56,17 @@
                     <input type="text" name="venue" class="form-control">
                 </div>
     
-                <div class="form-group my-4">
-                    <label for="location" class="form-label">Location</label>
-                    <input type="text" name="location" class="form-control">
+                {{-- Location --}}
+                <div class="row my-4">
+                    <div class="form-group col">
+                        <label for="location_name" class="form-label">Location Name</label>
+                        <input type="text" name="location_name" title="Provide Location Name eg Serena Hotel" class="form-control">
+                    </div>
+
+                    <div class="form-group col">
+                        <label for="location" class="form-label">Location Link</label>
+                        <input type="text" name="location_link" title="Please provide Google maps valid location link" class="form-control">
+                    </div>
                 </div>
     
                 <div class="form-group my-4">

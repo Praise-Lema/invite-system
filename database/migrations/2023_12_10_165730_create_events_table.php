@@ -21,7 +21,8 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->time('time')->nullable();
             $table->string('venue')->nullable();
-            $table->string('location')->nullable();
+            $table->string('location_name')->nullable();
+            $table->string('location_link')->nullable();
             $table->string('contacts')->nullable();
             $table->string('event_condition')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->nullable();
