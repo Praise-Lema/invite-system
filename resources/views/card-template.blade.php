@@ -7,19 +7,8 @@
         <div class="col-md-8">
             <div class="card">
 
-                {{-- <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-
-                </div> --}}
-
                 <div class="card">
-                    <img src={{ asset('resources/yellow-flower-card.png') }} alt="">
+                    <img src={{ asset('resources/design.png') }} alt="">
                     <h4 class="host-text position-absolute card-font-2 fw-bold">Mr. and Mrs John Doe</h4>
                     <p class="position-absolute invite-text text-center">INVITE YOU <br><span class="card-font fw-bolder guest-font">JONAS CARTER</span><br>TO THE WEDDING CELEBRATION OF</p>
 

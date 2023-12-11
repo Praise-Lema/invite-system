@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('phone');
             $table->string('invite_link')->nullable();
             $table->enum('status', ['0' , '1' , '2'])->default('1');
+            $table->enum('check_status', ['0','1'])->default('0')->nullable();
             $table->enum('type', ['Single', 'Double'])->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('event_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('event_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Guest;
 use Illuminate\Http\Request;
 
@@ -65,7 +66,10 @@ class GuestController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $guest = Guest::find($id);
+        $event = Event::find($id);
+        
+        return view('card')->with('guest', $guest);
     }
 
     /**
@@ -73,7 +77,8 @@ class GuestController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $guest = Guest::find($id);
+        return view('edit_guest')->with('guest', $guest);
     }
 
     /**
@@ -81,7 +86,24 @@ class GuestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $guest = Guest::find($id);
+        $guest->name = $request->name;
+        $guest->title = $request->title;
+        $guest->email = $request->email;
+        $guest->phone = $request->phone;
+        $guest->type = $request->type;
+        if($request->status == 'Attending'){
+            $guest->status = '2';
+        }else if($request->status == 'Not Attending'){
+            $guest->status = '0';
+        }else{
+            $guest->status = '1';
+        }
+        $guest->user_id = auth()->id();
+        $guest->event_id = $id;
+        $guest->update();
+
+        return redirect('/event/'.$id)->with('success', 'Guest Edited');
     }
 
     /**
@@ -89,6 +111,9 @@ class GuestController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $guest = Guest::find($id);
+        $guest->delete();
+
+        return redirect('/event')->with('success', 'Guest Deleted');
     }
 }

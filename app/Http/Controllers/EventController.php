@@ -86,7 +86,8 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $event = Event::find($id);
+        return view('event.edit')->with('event', $event);
     }
 
     /**
@@ -94,7 +95,23 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $event = Event::find($id);
+        $event->event_name = $request->input('event_name');
+        $event->event_host = $request->input('event_host');
+        $event->event_type = $request->input('event_type');
+        $event->groom = $request->input('groom');
+        $event->bride = $request->input('bride');
+        $event->date = $request->input('date');
+        $event->time = $request->input('time');
+        $event->venue = $request->input('venue');
+        $event->location_name = $request->input('location_name');
+        $event->location_link = $request->input('location_link');
+        $event->contacts = $request->input('contacts');
+        $event->user_id = auth()->id();
+        // $event->event_id = $id;
+        $event->update();
+
+        return redirect('/event')->with('success', 'Event Edited');
     }
 
     /**
@@ -102,6 +119,9 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect('/event')->with('success', 'Event Deleted');
     }
 }

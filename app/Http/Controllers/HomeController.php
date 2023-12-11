@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Guest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $events = Event::all();
+        $guests = Guest::all();
+        $attending_guest = Guest::where('status', '2')->count();
+        $pending_guest = Guest::where('status', '1')->count();
+        $not_guest = Guest::where('status', '0')->count();
+
+
+        return view('home')->with([
+            'events' => $events,
+            'guest' => $guests,
+            'attending' => $attending_guest,
+            'pending' => $pending_guest,
+            'not' => $not_guest
+    ]);
     }
 
     public function profile(){
@@ -32,5 +47,23 @@ class HomeController extends Controller
 
     public function template(){
         return view('card-template');
+    }
+
+    public function confirm($id)
+    {
+
+        $guest = Guest::find($id);
+        $guest->status = '2';
+        $guest->update();
+        return view('response')->with('guest', $guest);
+    }
+
+    public function deny($id)
+    {
+
+        $guest = Guest::find($id);
+        $guest->status = '0';
+        $guest->update();
+        return view('response')->with('guest', $guest);
     }
 }

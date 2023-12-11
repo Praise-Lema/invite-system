@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:ital,wght@0,200;0,300;1,200;1,300&display=swap" rel="stylesheet">
 
+    {{-- Favicon --}}
+    <link rel="shortcut icon" href="{{asset('resources/invite-card-logo.png')}}" type="image/x-icon">
+
     {{-- Custom CSS --}}
     <link rel="stylesheet" href={{ asset('resources/css/custom.css') }}>
 

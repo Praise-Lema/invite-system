@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('location_link')->nullable();
             $table->string('contacts')->nullable();
             $table->string('event_condition')->nullable();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

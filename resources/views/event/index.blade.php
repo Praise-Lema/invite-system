@@ -39,8 +39,8 @@
                                         <td>{{$event->venue}}</td>
                                         <td><a href="{{$event->location_link}}">{{$event->location_name}}</a></td>
                                             <td class="d-flex align-items-center">
-                                                <a href="/purchase/{{$event->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
-                                                <form action="/purchase/{{$event->id}}" method="POST">
+                                                <a href="/event/{{$event->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
+                                                <form action="/event/{{$event->id}}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{method_field('DELETE')}}
                                                     <button type="submit" value="" class="fas fa-trash text-danger border-0 bg-transparent"></button>

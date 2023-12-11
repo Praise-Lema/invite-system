@@ -28,7 +28,7 @@
                             <th>Phone</th>
                             <th>Type</th>
                             <th>Status</th>
-                            <th>Invite-link</th>
+                            {{-- <th>Link</th> --}}
                             <th>Action</th>
                         </tr>
     
@@ -54,19 +54,20 @@
                                             <td><span class="badge rounded-pill text-bg-success">Attending</span></td>
                                         @endif
 
-                                        <td>{{$guest->invite_link}}</td>
+                                        {{-- <td>{{$guest->invite_link}}</td> --}}
                                         {{-- <td>{{$guest->loc}}</td> --}}
                                             <td class="d-flex align-items-center">
                                                 <a href="/guest/{{$guest->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
-                                                <a href="#" class="text-warning-emphasis mx-1" title="View Card"><span class="fas fa-eye"></span></a>
+                                                <a href="/card-template/{{$guest->id}}" class="text-warning-emphasis mx-1" title="View Card"><span class="fas fa-eye"></span></a>
                                                 <form action="/guest/{{$guest->id}}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{method_field('DELETE')}}
                                                     <button type="submit" value="" class="fas fa-trash text-danger border-0 bg-transparent"></button>
                                                     {{-- <input type="text" name="" class="position-absolute bottom-0" style="transform: scale(0);" id="link" value="{{$guest->invite_link}}"> --}}
-                                                    <input type="text" name="" class="position-absolute bottom-0" style="transform: scale(0);" id="link" value="http://192.168.43.143:8082/card-template">
+                                                    <input type="text" name="" class="position-absolute bottom-0" style="transform: scale(0);" id="link" value="http://192.168.43.143:8082/card-template/{{$guest->id}}">
                                                 </form>
-                                                <a href="#" onclick="copyLink()" class="btn btn-success bg-gradient">Invite</a>
+                                                <a href="#" onclick="copyLink()" class="btn btn-success bg-gradient">Copy link</a>
+                                                <a href="#" class="btn btn-dark mx-1 bg-gradient">Check</a>
                                             </td>
 
                                             <script>
@@ -75,7 +76,7 @@
                                                     link.select();
                                                     link.setSelectionRange(0, 99999);
                                                     document.execCommand('copy');
-                                                    console.log(link);
+                                                    // console.log(link);
                                                 }
                                             </script>
                                         </tr>
@@ -87,7 +88,7 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    {{-- <td></td> --}}
                                     <td></td>
                                     <td></td>
                                     <td></td>
