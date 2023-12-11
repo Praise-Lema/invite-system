@@ -2,6 +2,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.card-width{
+    width: 45%;
+}
+
 .card-font{
     font-family: 'Dancing Script', cursive;
 }
@@ -10,9 +14,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+
 .card-texty, .date-text, .venue-text, .host-text, .invite-text, .cta, .other-desc, .location-text, .contacts, .time-text, .badge-text {
     left: 50%;
     transform: translateX(-50%);
+    color: #e1bd6c;
 }
 
 .card-texty {
@@ -43,6 +49,22 @@ body {
 
 .other-desc {
     bottom: 40%;
+}
+
+.location-text{
+    bottom: 36%;
+}
+
+.time-text{
+    bottom: 30%;
+}
+
+.badge-text{
+    bottom: 26%;
+}
+
+.contacts{
+    bottom: 20%;
 }
 
 /* Sidebar */
@@ -97,7 +119,7 @@ body {
 
     .date-text{
         left: 48%;
-        bottom: 43%;
+        bottom: 45%;
         font-size: 1.2rem;
     }
 
