@@ -11,9 +11,9 @@
                     <img src={{ asset('resources/design.png') }} alt="">
                     {{-- <img src={{ asset('resources/yellow-flower-card.png') }} alt=""> --}}
                     <h4 class="host-text position-absolute card-font-2 fw-bold">{{$guest->event->event_host}}</h4>
-                    <p class="position-absolute invite-text text-center">INVITE YOU <br><span class="card-font fw-bolder guest-font">{{$guest->name}}</span><br>TO THE WEDDING CELEBRATION OF</p>
+                    <p class="position-absolute invite-text text-center">INVITE YOU <br><span class="card-font fw-bolder guest-font">{{$guest->title}}. {{$guest->name}}</span><br>TO THE WEDDING CELEBRATION OF</p>
 
-                    <h1 class="card-texty card-font position-absolute text-center fw-bold">{{$guest->event->bride}} <br> & <br>{{$guest->event->groom}}</h1>
+                    <h1 class="card-texty card-font position-absolute text-center fw-bold">{{$guest->event->groom}} <br> & <br>{{$guest->event->bride}}</h1>
                     <h3 class="venue-text position-absolute fs-5 fw-bold">{{$guest->event->venue}}</h3>
                     <h3 class="location-text position-absolute">Location: <a href="{{$guest->event->location_link}}">{{$guest->event->location_name}}</a></h3>
                     <h3 class="time-text"></h3>
@@ -23,8 +23,8 @@
 
                     <div class="cta position-absolute">
                         @if ($guest->status == '1')
-                            <a href="/card/{{$guest->id}}/response" class="btn btn-success bg-gradient mx-1">Attending</a>
-                            <a href="/card/{{$guest->id}}/response" class="btn btn-danger bg-gradient">Won't attend</a>
+                            <a href="/card-confirm/{{$guest->id}}/response" class="btn btn-success bg-gradient mx-1">Attending</a>
+                            <a href="/card-deny/{{$guest->id}}/response" class="btn btn-danger bg-gradient">Won't attend</a>
                         @endif
                     </div>
 

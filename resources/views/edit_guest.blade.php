@@ -94,9 +94,9 @@
 
                             <div class="col-md-6">
                                 <select name="status" class="form-select" value="{{ $guest->status }}" id="status">
+                                    <option value="Pending">Pending</option>
                                     <option value="Attending">Attending</option>
                                     <option value="Not Attending">Not Attending</option>
-                                    <option value="Pending">Pending</option>
                                 </select>
                             </div>
                         </div>

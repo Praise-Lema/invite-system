@@ -51,6 +51,7 @@ class GuestController extends Controller
         $guest->email = $request->email;
         $guest->phone = $request->phone;
         $guest->type = $request->type;
+        $guest->check_status = '0';
         $guest->status = '1';
         $guest->invite_link = $this->generateRandomString();
         $guest->user_id = auth()->id();
@@ -92,6 +93,7 @@ class GuestController extends Controller
         $guest->email = $request->email;
         $guest->phone = $request->phone;
         $guest->type = $request->type;
+        $guest->check_status = '0';
         if($request->status == 'Attending'){
             $guest->status = '2';
         }else if($request->status == 'Not Attending'){
@@ -115,5 +117,14 @@ class GuestController extends Controller
         $guest->delete();
 
         return redirect('/event')->with('success', 'Guest Deleted');
+    }
+
+    public function check($id)
+    {
+        $guest = Guest::find($id);
+        $guest->check_status = '1';
+        $guest->update();
+
+        return redirect()->back()->with('success', 'Guest Checked Succesfully');
     }
 }

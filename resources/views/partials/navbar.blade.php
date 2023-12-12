@@ -11,7 +11,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-
+                <li class="nav-item">
+                    <a href="/home" class="nav-link text-light d-md-none">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/event" class="nav-link text-light d-md-none">Event</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/event/create" class="nav-link text-light d-md-none">Create Event</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/card-template" class="nav-link text-light d-md-none">Card Template</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -25,9 +36,9 @@
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                        </li> --}}
                     @endif
                 @else
                     <li class="nav-item dropdown">

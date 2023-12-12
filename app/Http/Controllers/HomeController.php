@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['confirm', 'deny', 'index']);
     }
 
     /**
@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $id = auth()->id();
+        $events = Event::where('user_id', $id)->get();
         $guests = Guest::all();
         $attending_guest = Guest::where('status', '2')->count();
         $pending_guest = Guest::where('status', '1')->count();

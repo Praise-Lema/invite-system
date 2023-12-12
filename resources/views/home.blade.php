@@ -78,7 +78,7 @@
 
         {{-- Table --}}
         <div class="container mt-4">
-            <h2 class="text-center text-dark">Events</h2>
+            <h2 class="text-center text-dark">Your Events</h2>
 
             <div class="table-responsive-md container-fluid">
                 <table class="table table-rounded table-secondary table-striped table-hover">
@@ -88,9 +88,9 @@
                         <th>No. of Guests</th>
                         <th>Venue</th>
                         <th>Location</th>
-                        <th>Attending</th>
-                        <th>Pending</th>
-                        <th>Not Attending</th>
+                        <th>Date</th>
+                        {{-- <th>Pending</th> --}}
+                        {{-- <th>Not Attending</th> --}}
                         <th>Action</th>
                     </tr>
     
@@ -103,16 +103,16 @@
                                     <td>{{(count($event->guest))}}</td>
                                     <td>{{$event->venue}}</td>
                                     <td><a href="{{$event->location_link}}">{{$event->location_name}}</a></td>
-                                    <td>{{$attending}}</td>
-                                    <td>{{$pending}}</td>
-                                    <td>{{$not}}</td>
+                                    <td>{{$event->date}}</td>
+                                    {{-- <td>{{$pending}}</td> --}}
+                                    {{-- <td>{{$not}}</td> --}}
                                         <td class="d-flex align-items-center">
-                                            <a href="/event/{{$event->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
+                                            {{-- <a href="/event/{{$event->id}}/edit" class="text-success"><span class="fas fa-edit"></span></a>
                                             <form action="/event/{{$event->id}}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{method_field('DELETE')}}
                                                 <button type="submit" value="" class="fas fa-trash text-danger border-0 bg-transparent"></button>
-                                            </form>
+                                            </form> --}}
                                             <a href="/event/{{$event->id}}" class="btn btn-success bg-gradient">Guests</a>
                                         </td>
                                     </tr>
@@ -127,8 +127,8 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
+                                {{-- <td></td> --}}
+                                {{-- <td></td> --}}
                             </tr>    
                         @endif
                     </tbody>

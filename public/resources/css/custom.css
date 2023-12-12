@@ -93,7 +93,19 @@ body {
 
 
 /* Media Query */
-@media (max-width: 720px) {
+@media only screen and (max-width: 720px) {
+    .main-bar, .extra-side-bar, .profile-card{
+        margin-left: 0;
+    }
+
+    .card-width {
+        width: 40%;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
     .host-text {
         font-size: 1rem;
     }

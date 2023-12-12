@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Guest extends Model
 {
-    protected $fillable = ['name', 'email', 'phone', 'title', 'invite_link', 'type'];
+    protected $fillable = ['name', 'email', 'phone', 'title', 'invite_link', 'type', 'event_id'];
     use HasFactory;
 
     public function Event():BelongsTo

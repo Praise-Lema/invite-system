@@ -21,8 +21,8 @@ return new class extends Migration
             $table->enum('status', ['0' , '1' , '2'])->default('1');
             $table->enum('check_status', ['0','1'])->default('0')->nullable();
             $table->enum('type', ['Single', 'Double'])->nullable();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('event_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreignId('event_id')->references('id')->on('events')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
