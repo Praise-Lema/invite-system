@@ -65,7 +65,7 @@
                                                     {{method_field('DELETE')}}
                                                     <button type="submit" value="" class="fas fa-trash text-danger border-0 bg-transparent"></button>
                                                     {{-- <input type="text" name="" class="position-absolute bottom-0" style="transform: scale(0);" id="link" value="{{$guest->invite_link}}"> --}}
-                                                    <input type="text" name="" class="position-absolute bottom-0" style="transform: scale(0);" id="link" value="https://ic.cloudservice.co.tz/card-template/{{$guest->id}}">
+                                                    <input type="text" name="" class="position-absolute bottom-0" style="transform: scale(0.1);" id="link" value="https://ic.cloudservice.co.tz/card-template/{{$guest->id}}">
                                                 </form>
                                                 <a href="#" onclick="copyLink()" class="btn btn-success bg-gradient">Copy link</a>
                                                 @if ($guest->status == '2')

@@ -14,17 +14,17 @@
                     <p class="position-absolute invite-text text-center">INVITE YOU <br><span class="card-font fw-bolder guest-font">{{$guest->title}}. {{$guest->name}}</span><br>TO THE WEDDING CELEBRATION OF</p>
 
                     <h1 class="card-texty card-font position-absolute text-center fw-bold">{{$guest->event->groom}} <br> & <br>{{$guest->event->bride}}</h1>
-                    <h3 class="venue-text position-absolute fs-5 fw-bold">{{$guest->event->venue}}</h3>
+                    <p class="venue-text position-absolute fw-bold">{{$guest->event->venue}}</p>
                     <h3 class="location-text position-absolute">Location: <a href="{{$guest->event->location_link}}">{{$guest->event->location_name}}</a></h3>
                     <h3 class="time-text"></h3>
                     <h3 class="date-text card-font position-absolute"><span class="text-success">{{date('D d F Y', strtotime($guest->event->date))}}</span></h3>
-                    <h3 class="time-text position-absolute card-font-2 fs-6 fw-bolder">Time: {{$guest->event->time}}</h3>
+                    <p class="time-text position-absolute card-font-2 fw-bolder">Time: {{$guest->event->time}}</p>
                     <h3 class="position-absolute other-desc card-font-2">Other Descriptions: </h3>
 
                     <div class="cta position-absolute">
                         @if ($guest->status == '1')
-                            <a href="/card-confirm/{{$guest->id}}/response" class="btn btn-success bg-gradient mx-1">Attending</a>
-                            <a href="/card-deny/{{$guest->id}}/response" class="btn btn-danger bg-gradient">Won't attend</a>
+                            <a href="/card-confirm/{{$guest->id}}/response" class="btn btn-sm btn-success bg-gradient mx-1">Attending</a>
+                            <a href="/card-deny/{{$guest->id}}/response" class="btn btn-sm btn-danger bg-gradient">Won't attend</a>
                         @endif
                     </div>
 

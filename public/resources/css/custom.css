@@ -10,6 +10,10 @@ body {
     font-family: 'Dancing Script', cursive;
 }
 
+.guest-font{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .card-font-2 {
     font-family: 'Poppins', sans-serif;
 }
@@ -93,7 +97,7 @@ body {
 
 
 /* Media Query */
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 740px) {
     .main-bar, .extra-side-bar, .profile-card{
         margin-left: 0;
     }
@@ -120,13 +124,13 @@ body {
     }
 
     .card-texty{
-        font-size: 2rem;
+        font-size: 2.2rem;
         top: 26%;
     }
 
     .invite-text{
         top: 14%;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .date-text{
@@ -163,5 +167,77 @@ body {
 
     .time-text{
         bottom: 40%;
+    }
+}
+
+@media (max-width:420px){
+
+    .cta .btn{
+        font-size: 3vw;
+    }
+
+    .host-text {
+        font-size: .7rem;
+    }
+
+    .card-texty{
+        font-size: 1.6rem;
+        top: 26%;
+    }
+    
+
+    .invite-text{
+        top: 14%;
+        font-size: 0.55rem;
+    }
+
+    .date-text{
+        left: 48%;
+        bottom: 47%;
+        font-size: 0.9rem;
+    }
+
+    .venue-text{
+        bottom: 32%;
+        font-size: 10px;
+    }
+
+    .location-text{
+        bottom: 28%;
+        font-size: 12px;
+    }
+
+    .other-desc{
+        display: none;
+    }
+    
+    .contacts{
+        bottom: 21%;
+        font-size: 10px;
+    }
+
+    .cta {
+        left: 44%;
+        display: flex;
+        /* padding: 0 3px; */
+        /* justify-content: ; */
+        align-items: center;
+    }
+
+    .time-text{
+        bottom: 40%;
+        font-size: 10px;
+    }
+}
+
+@media (max-width:300px){
+    .invite-text{
+        top: 14%;
+        font-size: 0.5rem;
+    }
+
+    .card-texty{
+        font-size: 1.0rem;
+        top: 28%;
     }
 }
